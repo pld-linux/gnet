@@ -45,7 +45,7 @@ Interfejs jest podobny do biblioteki sieciowej Javy. Mo¿liwo¶ci to:
 Summary:	Header files for the Gnet library
 Summary(pl):	Pliki nag³ówkowe dla biblioteki Gnet
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 2.0
 Requires:	gtk-doc-common
 
@@ -61,7 +61,7 @@ Pliki nag³ówkowe dla biblioteki Gnet.
 Summary:	Static Gnet library
 Summary(pl):	Biblioteka statyczna Gnet
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static Gnet library.
