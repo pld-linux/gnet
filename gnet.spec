@@ -1,7 +1,7 @@
 Summary:	Gnet, a network library
 Summary(pl):	Biblioteka sieciowa
 Name:		gnet
-Version:	2.0.1
+Version:	2.0.2
 Release:	1
 License:	LGPL
 Group:		Libraries
