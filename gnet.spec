@@ -81,7 +81,7 @@ Biblioteka statyczna Gnet.
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
-	
+
 %{__make}
 
 %install
