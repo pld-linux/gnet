@@ -1,16 +1,17 @@
 Summary:	Gnet, a network library
 Summary(pl):	Biblioteka sieciowa
 Name:		gnet
-Version:	1.0.4
-Release:	2
+Version:	1.1.0
+Release:	1
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
-Source0:	http://www.eecs.umich.edu/~dhelder/misc/gnet/src/%{name}-%{version}.tar.gz
-URL:		http://www.eecs.umich.edu/~dhelder/misc/gnet/
+Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
+Patch0:		%{name}-no_libnsl_and_libresolv.patch
+URL:		http://gnetlibrary.org/
 BuildRequires:	glib-devel >= 1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,8 +72,10 @@ Biblioteka statyczna Gnet.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
+autoconf
 %configure
 %{__make}
 
