@@ -1,6 +1,6 @@
 Summary:	Gnet, a network library
 Name:		gnet
-Version:	1.0.1
+Version:	1.0.2
 Release:	1
 License:	LGPL
 Group:		Libraries
@@ -10,8 +10,6 @@ Source0:	http://www.eecs.umich.edu/~dhelder/misc/gnet/src/%{name}-%{version}.tar
 URL:		http://www.eecs.umich.edu/~dhelder/misc/gnet/
 BuildRequires:	glib-devel >= 1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_aclocaldir	%(aclocal --print-ac-dir)
 
 %description
 Gnet is a simple network library. It is writen in C, object-oriented, and
