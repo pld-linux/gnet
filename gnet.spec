@@ -41,7 +41,7 @@ Summary:	Header files for the Gnet library
 Summary(pl):	Pliki nag³ówkowe dla biblioteki Gnet
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	glib-devel
+Requires:	glib2-devel
 
 %description devel
 Gnet is a simple network library. It is writen in C, object-oriented,
