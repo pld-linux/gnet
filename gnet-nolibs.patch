@@ -1,0 +1,15 @@
+--- gnet-2.0.4/configure.ac.orig	Thu Jul 24 03:34:53 2003
++++ gnet-2.0.4/configure.ac	Wed Aug 13 12:00:02 2003
+@@ -123,9 +123,9 @@
+ 
+ ###############################
+ # Check for libraries
+-AC_CHECK_LIB([socket], [main])
+-AC_CHECK_LIB([nsl], [main])
+-AC_CHECK_LIB([resolv], [main])
++AC_SEARCH_LIBS([socket], [socket])
++AC_SEARCH_LIBS([gethostbyname], [nsl])
++AC_SEARCH_LIBS([inet_aton], [resolv])
+ 
+ # Check for pthreads
+ AC_ARG_ENABLE(pthreads,
