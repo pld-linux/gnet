@@ -46,6 +46,7 @@ Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
+Requires:	glib-devel
 
 %description devel
 Gnet is a simple network library. It is writen in C, object-oriented,
