@@ -1,20 +1,18 @@
 Summary:	Gnet, a network library
 Summary(pl):	Biblioteka sieciowa
 Name:		gnet
-Version:	2.0.3
+Version:	2.0.4
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
-# Source0-md5:	547e36985eabcd931d8ee63449bd04ad
-Patch0:		%{name}-pkgconfig.patch
+# Source0-md5:	b43e728391143214e2cfd0b835b6fd2a
 URL:		http://gnetlibrary.org/
-BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	glib2-devel
 BuildRequires:	gtk-doc
 BuildRequires:	libtool
-Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -69,7 +67,6 @@ Biblioteka statyczna Gnet.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 %configure \
