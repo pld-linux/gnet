@@ -2,7 +2,7 @@ Summary:	Gnet, a network library
 Summary(pl):	Biblioteka sieciowa
 Name:		gnet
 Version:	1.1.5
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
@@ -102,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gnet
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/gnet.pc
-%{_mandir}/*
+%{_mandir}/man?/*
 
 %files static
 %defattr(644,root,root,755)
