@@ -1,9 +1,10 @@
 Summary:	Gnet, a network library
 Name:		gnet
-Version:	1.0.3
+Version:	1.0.4
 Release:	1
 License:	LGPL
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	http://www.eecs.umich.edu/~dhelder/misc/gnet/src/%{name}-%{version}.tar.gz
@@ -26,6 +27,7 @@ network library. Features:
 %package devel
 Summary:	Header files for the Gnet library
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -39,6 +41,7 @@ that use the Gnet library.
 Summary:	Static Gnet library
 Summary(pl):	Biblioteka statyczna Gnet
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -53,7 +56,6 @@ Biblioteka statyczna Gnet.
 %setup -q
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
 
@@ -63,8 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 	m4datadir=%{_aclocaldir}
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf README ChangeLog NEWS TODO AUTHORS HACKING
 
@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc *.gz
-%doc doc/html
+%doc doc/html/*html
 %attr(755,root,root) %{_bindir}/gnet-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_aclocaldir}/gnet.m4
