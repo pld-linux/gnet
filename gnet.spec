@@ -43,7 +43,7 @@ Summary(pl):	Biblioteka statyczna Gnet
 Group:		Development/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Requires:	%{name} = %{version}
+Requires:	%{name}-devel = %{version}
 
 %description static
 Static Gnet library.
