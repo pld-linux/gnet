@@ -1,0 +1,13 @@
+--- gnet-1.1.0./configure.in~	Mon May 21 16:54:04 2001
++++ gnet-1.1.0/configure.in	Mon Jul  2 08:45:41 2001
+@@ -155,8 +155,8 @@
+ 
+ 
+ # Need network libraries
+-AC_CHECK_LIB(nsl, main)
+-AC_CHECK_LIB(resolv, main)
++#AC_CHECK_LIB(nsl, main)
++#AC_CHECK_LIB(resolv, main)
+ 
+ 
+ # ****************************************
