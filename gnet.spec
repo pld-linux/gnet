@@ -7,12 +7,14 @@ License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
 # Source0-md5:	b43e728391143214e2cfd0b835b6fd2a
+Patch0:		%{name}-nolibs.patch
 URL:		http://gnetlibrary.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	glib2-devel
 BuildRequires:	gtk-doc
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,6 +46,7 @@ Summary(pl):	Pliki nag³ówkowe dla biblioteki Gnet
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	glib2-devel
+Requires:	gtk-doc-common
 
 %description devel
 Gnet is a simple network library. It is writen in C, object-oriented,
@@ -67,10 +70,17 @@ Biblioteka statyczna Gnet.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
-	--enable-gtk-doc
+	--enable-gtk-doc \
+	--with-html-dir=%{_gtkdocdir}
 	
 %{__make}
 
@@ -81,26 +91,26 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 	m4datadir=%{_aclocaldir}
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
+%doc README ChangeLog NEWS TODO AUTHORS
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc README ChangeLog NEWS TODO AUTHORS HACKING
-%doc doc/html/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_aclocaldir}/gnet-2.0.m4
-%{_includedir}/gnet-2.0
-%{_libdir}/gnet-2.0
 %{_libdir}/*.la
-%{_libdir}/pkgconfig/gnet-2.0.pc
+%{_libdir}/gnet-2.0
+%{_includedir}/gnet-2.0
+%{_aclocaldir}/gnet-2.0.m4
+%{_pkgconfigdir}/gnet-2.0.pc
+%{_gtkdocdir}/gnet
 
 %files static
 %defattr(644,root,root,755)
