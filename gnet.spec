@@ -2,16 +2,17 @@ Summary:	Gnet, a network library
 Summary(pl):	Biblioteka sieciowa
 Name:		gnet
 Version:	2.0.4
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
 # Source0-md5:	b43e728391143214e2cfd0b835b6fd2a
 Patch0:		%{name}-nolibs.patch
+Patch1:		%{name}-am18.patch
 URL:		http://gnetlibrary.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	glib2-devel
+BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	gtk-doc
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -45,7 +46,7 @@ Summary:	Header files for the Gnet library
 Summary(pl):	Pliki nag³ówkowe dla biblioteki Gnet
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	glib2-devel
+Requires:	glib2-devel >= 2.0
 Requires:	gtk-doc-common
 
 %description devel
@@ -70,7 +71,8 @@ Biblioteka statyczna Gnet.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 # don't BR glib-devel
 echo -e 'AC_DEFUN([AM_PATH_GLIB], [$3\n:])' >> acinclude.m4
