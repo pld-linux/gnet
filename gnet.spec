@@ -7,6 +7,7 @@ License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
 # Source0-md5:	547e36985eabcd931d8ee63449bd04ad
+Patch0:		%{name}-pkgconfig.patch
 URL:		http://gnetlibrary.org/
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -68,6 +69,7 @@ Biblioteka statyczna Gnet.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %configure \
