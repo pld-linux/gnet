@@ -72,6 +72,9 @@ Biblioteka statyczna Gnet.
 %setup -q
 %patch -p1
 
+# don't BR glib-devel
+echo -e 'AC_DEFUN([AM_PATH_GLIB], [$3\n:])' >> acinclude.m4
+
 %build
 %{__libtoolize}
 %{__aclocal}
