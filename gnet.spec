@@ -5,13 +5,6 @@ Version:	1.1.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
 Patch0:		%{name}-no_libnsl_and_libresolv.patch
 URL:		http://gnetlibrary.org/
@@ -48,13 +41,6 @@ Interfejs jest podobny do biblioteki sieciowej Javy. Mo©liwo╤ci to:
 Summary:	Header files for the Gnet library
 Summary(pl):	Pliki nagЁСwkowe dla biblioteki Gnet
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	glib-devel
 
@@ -70,13 +56,6 @@ Pliki nagЁСwkowe dla biblioteki Gnet.
 Summary:	Static Gnet library
 Summary(pl):	Biblioteka statyczna Gnet
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
