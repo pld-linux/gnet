@@ -9,7 +9,7 @@ Group(pl):	Biblioteki
 Source0:	http://www.eecs.umich.edu/~dhelder/misc/gnet/src/%{name}-%{version}.tar.gz
 URL:		http://www.eecs.umich.edu/~dhelder/misc/gnet/
 BuildRequires:	glib-devel >= 1.2
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_aclocaldir	%(aclocal --print-ac-dir)
 
