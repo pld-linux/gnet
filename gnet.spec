@@ -1,111 +1,92 @@
-# Note that this is NOT a relocatable package
-%define ver      1.0.1
-%define rel      1
-%define prefix   /usr
+Summary:	Gnet, a network library
+Name:		gnet
+Version:	1.0.1
+Release:	1
+License:	LGPL
+Group:		Libraries
+Group(fr):	Librairies
+Group(pl):	Biblioteki
+Source0:	http://www.eecs.umich.edu/~dhelder/misc/gnet/src/%{name}-%{version}.tar.gz
+URL:		http://www.eecs.umich.edu/~dhelder/misc/gnet/
+BuildRequires:	glib-devel >= 1.2
+BuildRoot:	/tmp/%{name}-%{version}-root
 
-Summary: Gnet, a network library
-Name:      gnet
-Version:   %ver
-Release:   %rel
-Copyright: LGPL
-Group: Libraries/Network
-Source0:   gnet-%{PACKAGE_VERSION}.tar.gz
-URL:       http://www.eecs.umich.edu/~dhelder/misc/gnet
-BuildRoot: /var/tmp/gnet-%{PACKAGE_VERSION}-root
-Docdir: %{prefix}/doc
-Packager: Xavier Nicolovici <nicolovi@club-internet.fr>
-Requires: glib >= 1.2
+%define		_aclocaldir	%(aclocal --print-ac-dir)
 
 %description
-Gnet is a simple network library.  It is writen in C, object-oriented,
-and built upon glib.  It is intended to be small, fast, easy-to-use,
-and easy to port.  The interface is similar to the interface for
-Java's network library.
-
-Features:
-  * TCP 'client' sockets
-  * TCP 'server' sockets
-  * Non-blocking TCP sockets
-  * UDP
-  * IP Multicast
-  * Internet address abstraction
-
-Gnet requires Glib 1.2.  You can get this at www.gtk.org.  Or, if you
-have a system with packages (eg, Red Hat or Debian), look for the
-latest glib package.
-
-Comments, questions, and bug reports should be sent to
-gnet-dev@eecs.umich.edu.
-
-The Gnet homepage is at http://www.eecs.umich.edu/~dhelder/misc/gnet
+Gnet is a simple network library. It is writen in C, object-oriented, and
+built upon glib. It is intended to be small, fast, easy-to-use, and easy
+to port. The interface is similar to the interface for Java's network
+library. Features:
+   * TCP 'client' sockets
+   * TCP 'server' sockets
+   * Non-blocking TCP sockets
+   * UDP
+   * IP Multicast
+   * Internet address abstraction
 
 %package devel
-Summary: Header files for the Gnet library
-Group: Development/Libraries
+Summary:	Header files for the Gnet library
+Group:		Development/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
-Gnet is a simple network library.  It is writen in C, object-oriented,
-and built upon glib.
-This package allows you to develop applications that use the Gnet
-library.
+Gnet is a simple network library. It is writen in C, object-oriented, and
+built upon glib. This package allows you to develop applications that use
+the Gnet library.
 
+%package static
+Summary:	Static Gnet library
+Summary(pl):	Biblioteka statyczna Gnet
+Group:		Development/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
+Requires:	%{name} = %{version}
+
+%description static
+Static Gnet library.
+
+%description -l pl static
+Biblioteka statyczna Gnet.
 
 %prep
-%setup
+%setup -q
 
 %build
-%ifarch alpha
-   CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" ./configure --host=alpha-redhat-linux\
-	--prefix=%{prefix} \
-	--enable-debug=yes \
-	--with-gnu-ld
-%else
-   CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" ./configure \
-	--prefix=%{prefix} \
-	--enable-debug=yes \
-	--with-gnu-ld 
-%endif
+LDFLAGS="-s"; export LDFLAGS
+%configure
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make prefix=$RPM_BUILD_ROOT%{prefix} install
+make install \
+	DESTDIR=$RPM_BUILD_ROOT
+	m4datadir=%{_aclocaldir}
 
-%post
-/sbin/ldconfig
+strip --stri-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
-%postun
-/sbin/ldconfig
+gzip -9nf README ChangeLog NEWS TODO AUTHORS HACKING
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-, root, root)
-
-%doc README COPYING ChangeLog NEWS TODO AUTHORS INSTALL HACKING
-%{prefix}/bin/gnet-config
-%{prefix}/share/aclocal/gnet.m4
-%doc doc/html
-%{prefix}/lib/libgnet-1.0.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
-%defattr(-, root, root)
-%{prefix}/include/gnet
-%{prefix}/lib/*a
-%{prefix}/lib/lib*.so
+%defattr(644,root,root,755)
+%doc *.gz
+%doc doc/html
+%attr(755,root,root) %{_bindir}/gnet-config
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_aclocaldir}/gnet.m4
+%{_includedir}/gnet
 
-%changelog
-* Mon Feb 28 2000 David Helder <dhelder@umich.edu>
-- Updated for version 1.0
-
-* Sat Jan 15 2000 Xavier Nicolovici <nicolovi@club-internet.fr>
-- Moved lib*.so and lib*a to the devel package
-- Creation of a gnet.spec.in for autoconf process
-
-* Wed Jan 14 2000 Xavier Nicolovici <nicolovi@club-internet.fr>
-- HTML documentation has been move to /usr/doc/gnet-{version}/html
-
-* Thu Jan 13 2000 Xavier Nicolovici <nicolovi@club-internet.fr>
-- First try at an RPM
+%files static
+%attr(644,root,root) %{_libdir}/lib*.a
