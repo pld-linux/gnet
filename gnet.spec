@@ -1,12 +1,12 @@
 Summary:	Gnet, a network library
 Summary(pl):	Biblioteka sieciowa
 Name:		gnet
-Version:	1.1.0
+Version:	1.1.4
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
-Patch0:		%{name}-no_libnsl_and_libresolv.patch
+#Patch0:		%{name}-no_libnsl_and_libresolv.patch
 URL:		http://gnetlibrary.org/
 BuildRequires:	glib-devel >= 1.2
 BuildRequires:	automake
@@ -66,12 +66,12 @@ Biblioteka statyczna Gnet.
 
 %prep
 %setup -q
-%patch -p1
+#%patch -p1
 
 %build
-libtoolize --copy --force
-aclocal
-autoconf
+#libtoolize --copy --force
+#aclocal
+#autoconf
 %configure
 %{__make}
 
