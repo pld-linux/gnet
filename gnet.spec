@@ -9,6 +9,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
 Patch0:		%{name}-no_libnsl_and_libresolv.patch
 URL:		http://gnetlibrary.org/
