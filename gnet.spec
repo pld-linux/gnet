@@ -1,10 +1,12 @@
 Summary:	Gnet, a network library
+Summary(pl):	Biblioteka sieciowa
 Name:		gnet
 Version:	1.0.4
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	http://www.eecs.umich.edu/~dhelder/misc/gnet/src/%{name}-%{version}.tar.gz
@@ -24,8 +26,20 @@ network library. Features:
    - IP Multicast
    - Internet address abstraction
 
+%description -l pl
+Gnet jest prost± bibliotek± sieciow±. Jest napisana w C, zorientowana
+objektowo i zbudowana na bazie glib. W zamierzeniu ma byæ mala,
+szybka, ³atwa w u¿yciu i ³atwa do przeniesienia na inne systemy.
+Interfejs jest podobny do biblioteki sieciowej Javy. Mo¿liwo¶ci to:
+   - gniazda 'klienckie' TCP
+   - gniazda 'serwerowe' TCP
+   - nie-blokuj±ce gniazda TCP
+   - UDP
+   - IP Multicast
+
 %package devel
 Summary:	Header files for the Gnet library
+Summary(pl):	Pliki nag³ówkowe dla biblioteki Gnet
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
@@ -36,6 +50,9 @@ Requires:	%{name} = %{version}
 Gnet is a simple network library. It is writen in C, object-oriented,
 and built upon glib. This package allows you to develop applications
 that use the Gnet library.
+
+%description -l pl devel
+Pliki nag³ówkowe dla biblioteki Gnet.
 
 %package static
 Summary:	Static Gnet library
@@ -86,6 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_aclocaldir}/gnet.m4
 %{_includedir}/gnet
+%{_libdir}/gnet
 
 %files static
 %defattr(644,root,root,755)
