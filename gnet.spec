@@ -79,8 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 	m4datadir=%{_aclocaldir}
 
-gzip -9nf README ChangeLog NEWS TODO AUTHORS HACKING
-
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
@@ -93,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README ChangeLog NEWS TODO AUTHORS HACKING
 %doc doc/html/*
 %attr(755,root,root) %{_bindir}/gnet-config
 %attr(755,root,root) %{_libdir}/lib*.so
