@@ -12,16 +12,16 @@ BuildRequires:	glib-devel >= 1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Gnet is a simple network library. It is writen in C, object-oriented, and
-built upon glib. It is intended to be small, fast, easy-to-use, and easy
-to port. The interface is similar to the interface for Java's network
-library. Features:
-   * TCP 'client' sockets
-   * TCP 'server' sockets
-   * Non-blocking TCP sockets
-   * UDP
-   * IP Multicast
-   * Internet address abstraction
+Gnet is a simple network library. It is writen in C, object-oriented,
+and built upon glib. It is intended to be small, fast, easy-to-use,
+and easy to port. The interface is similar to the interface for Java's
+network library. Features:
+   - TCP 'client' sockets
+   - TCP 'server' sockets
+   - Non-blocking TCP sockets
+   - UDP
+   - IP Multicast
+   - Internet address abstraction
 
 %package devel
 Summary:	Header files for the Gnet library
@@ -31,9 +31,9 @@ Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
-Gnet is a simple network library. It is writen in C, object-oriented, and
-built upon glib. This package allows you to develop applications that use
-the Gnet library.
+Gnet is a simple network library. It is writen in C, object-oriented,
+and built upon glib. This package allows you to develop applications
+that use the Gnet library.
 
 %package static
 Summary:	Static Gnet library
@@ -75,6 +75,7 @@ gzip -9nf README ChangeLog NEWS TODO AUTHORS HACKING
 rm -rf $RPM_BUILD_ROOT
 
 %files
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
@@ -87,4 +88,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/gnet
 
 %files static
-%attr(644,root,root) %{_libdir}/lib*.a
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
