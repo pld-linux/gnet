@@ -1,6 +1,6 @@
 Summary:	Gnet, a network library
 Name:		gnet
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	LGPL
 Group:		Libraries
