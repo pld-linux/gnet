@@ -1,7 +1,7 @@
 Summary:	Gnet, a network library
 Summary(pl):	Biblioteka sieciowa
 Name:		gnet
-Version:	1.3.2
+Version:	2.0.0
 Release:	1
 License:	LGPL
 Group:		Libraries
@@ -10,7 +10,9 @@ URL:		http://gnetlibrary.org/
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	glib2-devel
+BuildRequires:	gtk-doc
 BuildRequires:	libtool
+Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -67,7 +69,9 @@ Biblioteka statyczna Gnet.
 %setup -q
 
 %build
-%configure
+%configure \
+	--enable-gtk-doc
+	
 %{__make}
 
 %install
@@ -92,11 +96,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog NEWS TODO AUTHORS HACKING
 %doc doc/html/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_aclocaldir}/gnet-1.3.m4
-%{_includedir}/gnet-1.3
-%{_libdir}/gnet-1.3
+%{_aclocaldir}/gnet-2.0.m4
+%{_includedir}/gnet-2.0
+%{_libdir}/gnet-2.0
 %{_libdir}/*.la
-%{_libdir}/pkgconfig/gnet-1.3.pc
+%{_libdir}/pkgconfig/gnet-2.0.pc
 
 %files static
 %defattr(644,root,root,755)
