@@ -31,7 +31,7 @@ network library. Features:
 
 %description -l pl
 Gnet jest prost± bibliotek± sieciow±. Jest napisana w C, zorientowana
-objektowo i zbudowana na bazie glib. W zamierzeniu ma byæ mala,
+obiektowo i zbudowana na bazie glib. W zamierzeniu ma byæ mala,
 szybka, ³atwa w u¿yciu i ³atwa do przeniesienia na inne systemy.
 Interfejs jest podobny do biblioteki sieciowej Javy. Mo¿liwo¶ci to:
    - gniazda 'klienckie' TCP
