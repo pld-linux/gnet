@@ -49,7 +49,7 @@ Gnet is a simple network library. It is writen in C, object-oriented,
 and built upon glib. This package allows you to develop applications
 that use the Gnet library.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe dla biblioteki Gnet.
 
 %package static
@@ -61,7 +61,7 @@ Requires:	%{name}-devel = %{version}
 %description static
 Static Gnet library.
 
-%description -l pl static
+%description static -l pl
 Biblioteka statyczna Gnet.
 
 %prep
