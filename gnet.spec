@@ -66,7 +66,7 @@ make install \
 	DESTDIR=$RPM_BUILD_ROOT
 	m4datadir=%{_aclocaldir}
 
-strip --stri-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf README ChangeLog NEWS TODO AUTHORS HACKING
 
