@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
+Patch0:		%{name}-no_libnsl_and_libresolv.patch
 URL:		http://gnetlibrary.org/
 BuildRequires:	glib-devel >= 1.2
 BuildRequires:	automake
@@ -65,6 +66,7 @@ Biblioteka statyczna Gnet.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
