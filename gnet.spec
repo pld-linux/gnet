@@ -1,19 +1,18 @@
 Summary:	Gnet, a network library
 Summary(pl):	Biblioteka sieciowa
 Name:		gnet
-Version:	2.0.4
-Release:	2
+Version:	2.0.5
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
-# Source0-md5:	b43e728391143214e2cfd0b835b6fd2a
+# Source0-md5:	126f140618de34801933d192302ed0b9
 Patch0:		%{name}-nolibs.patch
-Patch1:		%{name}-am18.patch
 URL:		http://gnetlibrary.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0
-BuildRequires:	gtk-doc
+#BuildRequires:	gtk-doc
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -72,7 +71,6 @@ Biblioteka statyczna Gnet.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 # don't BR glib-devel
 echo -e 'AC_DEFUN([AM_PATH_GLIB], [$3\n:])' >> acinclude.m4
@@ -84,7 +82,7 @@ echo -e 'AC_DEFUN([AM_PATH_GLIB], [$3\n:])' >> acinclude.m4
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-gtk-doc \
+	--disable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
