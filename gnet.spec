@@ -1,5 +1,5 @@
 Summary:	Gnet, a network library
-Summary(pl):	Biblioteka sieciowa
+Summary(pl.UTF-8):   Biblioteka sieciowa
 Name:		gnet
 Version:	2.0.7
 Release:	1
@@ -29,20 +29,20 @@ network library. Features:
    - IP Multicast
    - Internet address abstraction
 
-%description -l pl
-Gnet jest prost± bibliotek± sieciow±. Jest napisana w C, zorientowana
-obiektowo i zbudowana na bazie glib. W zamierzeniu ma byÊ mala,
-szybka, ≥atwa w uøyciu i ≥atwa do przeniesienia na inne systemy.
-Interfejs jest podobny do biblioteki sieciowej Javy. Moøliwo∂ci to:
+%description -l pl.UTF-8
+Gnet jest prostƒÖ bibliotekƒÖ sieciowƒÖ. Jest napisana w C, zorientowana
+obiektowo i zbudowana na bazie glib. W zamierzeniu ma byƒá mala,
+szybka, ≈Çatwa w u≈ºyciu i ≈Çatwa do przeniesienia na inne systemy.
+Interfejs jest podobny do biblioteki sieciowej Javy. Mo≈ºliwo≈õci to:
    - gniazda 'klienckie' TCP
    - gniazda 'serwerowe' TCP
-   - nie-blokuj±ce gniazda TCP
+   - nie-blokujƒÖce gniazda TCP
    - UDP
    - IP Multicast
 
 %package devel
 Summary:	Header files for the Gnet library
-Summary(pl):	Pliki nag≥Ûwkowe dla biblioteki Gnet
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe dla biblioteki Gnet
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 2.0
@@ -53,19 +53,19 @@ Gnet is a simple network library. It is writen in C, object-oriented,
 and built upon glib. This package allows you to develop applications
 that use the Gnet library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe dla biblioteki Gnet.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe dla biblioteki Gnet.
 
 %package static
 Summary:	Static Gnet library
-Summary(pl):	Biblioteka statyczna Gnet
+Summary(pl.UTF-8):   Biblioteka statyczna Gnet
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static Gnet library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna Gnet.
 
 %prep
