@@ -1,5 +1,5 @@
 Summary:	Gnet, a network library
-Summary(pl.UTF-8):   Biblioteka sieciowa
+Summary(pl.UTF-8):	Biblioteka sieciowa
 Name:		gnet
 Version:	2.0.7
 Release:	1
@@ -42,7 +42,7 @@ Interfejs jest podobny do biblioteki sieciowej Javy. Możliwości to:
 
 %package devel
 Summary:	Header files for the Gnet library
-Summary(pl.UTF-8):   Pliki nagłówkowe dla biblioteki Gnet
+Summary(pl.UTF-8):	Pliki nagłówkowe dla biblioteki Gnet
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 2.0
@@ -58,7 +58,7 @@ Pliki nagłówkowe dla biblioteki Gnet.
 
 %package static
 Summary:	Static Gnet library
-Summary(pl.UTF-8):   Biblioteka statyczna Gnet
+Summary(pl.UTF-8):	Biblioteka statyczna Gnet
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
