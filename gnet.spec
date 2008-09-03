@@ -1,12 +1,12 @@
 Summary:	Gnet, a network library
 Summary(pl.UTF-8):	Biblioteka sieciowa
 Name:		gnet
-Version:	2.0.7
-Release:	2
+Version:	2.0.8
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.gnetlibrary.org/src/%{name}-%{version}.tar.gz
-# Source0-md5:	3a7a40411775688fe4c42141ab007048
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnet/2.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	93327d2fca333d7e54ba2cf54e071165
 Patch0:		%{name}-nolibs.patch
 URL:		http://gnetlibrary.org/
 BuildRequires:	autoconf >= 2.52
@@ -104,6 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README ChangeLog NEWS TODO AUTHORS
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
+%ghost %attr(755,root,root) %{_libdir}/lib*.so.?
 
 %files devel
 %defattr(644,root,root,755)
