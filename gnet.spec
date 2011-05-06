@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnet/2.0/%{name}-%{version}.tar.bz2
 # Source0-md5:	93327d2fca333d7e54ba2cf54e071165
 Patch0:		%{name}-nolibs.patch
+Patch1:		%{name}-move_define.patch
 URL:		http://gnetlibrary.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -71,6 +72,7 @@ Biblioteka statyczna Gnet.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 # don't BR glib-devel
 echo -e 'AC_DEFUN([AM_PATH_GLIB], [$3\n:])' >> acinclude.m4
