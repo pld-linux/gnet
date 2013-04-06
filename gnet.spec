@@ -2,13 +2,14 @@ Summary:	Gnet, a network library
 Summary(pl.UTF-8):	Biblioteka sieciowa
 Name:		gnet
 Version:	2.0.8
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnet/2.0/%{name}-%{version}.tar.bz2
 # Source0-md5:	93327d2fca333d7e54ba2cf54e071165
 Patch0:		%{name}-nolibs.patch
 Patch1:		%{name}-move_define.patch
+Patch2:		%{name}-newautoconf.patch
 URL:		http://gnetlibrary.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -73,6 +74,7 @@ Biblioteka statyczna Gnet.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 # don't BR glib-devel
 echo -e 'AC_DEFUN([AM_PATH_GLIB], [$3\n:])' >> acinclude.m4
