@@ -1,0 +1,19 @@
+--- gnet-2.0.8/configure.ac.old	2013-04-06 21:51:18.000000000 +0200
++++ gnet-2.0.8/configure.ac	2013-04-06 21:51:44.000000000 +0200
+@@ -127,7 +127,6 @@
+ ###############################
+ # Check for programs
+ AC_PROG_CC
+-AM_PROG_CC_STDC
+ AC_PROG_INSTALL
+ AC_PROG_MAKE_SET
+ AC_LIBTOOL_WIN32_DLL
+@@ -610,7 +609,7 @@
+ # Outputs
+ ###############################
+ 
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ AC_CONFIG_FILES([
+ 	Makefile
+ 	src/Makefile
