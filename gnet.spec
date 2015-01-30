@@ -2,8 +2,8 @@ Summary:	Gnet, a network library
 Summary(pl.UTF-8):	Biblioteka sieciowa
 Name:		gnet
 Version:	2.0.8
-Release:	3
-License:	LGPL
+Release:	4
+License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnet/2.0/%{name}-%{version}.tar.bz2
 # Source0-md5:	93327d2fca333d7e54ba2cf54e071165
@@ -11,12 +11,13 @@ Patch0:		%{name}-nolibs.patch
 Patch1:		%{name}-move_define.patch
 Patch2:		%{name}-newautoconf.patch
 URL:		http://gnetlibrary.org/
-BuildRequires:	autoconf >= 2.52
+BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	glib2-devel >= 1:2.6.0
 #BuildRequires:	gtk-doc
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+Requires:	glib2 >= 1:2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,30 +25,30 @@ Gnet is a simple network library. It is writen in C, object-oriented,
 and built upon glib. It is intended to be small, fast, easy-to-use,
 and easy to port. The interface is similar to the interface for Java's
 network library. Features:
-   - TCP 'client' sockets
-   - TCP 'server' sockets
-   - Non-blocking TCP sockets
-   - UDP
-   - IP Multicast
-   - Internet address abstraction
+ - TCP 'client' sockets
+ - TCP 'server' sockets
+ - Non-blocking TCP sockets
+ - UDP
+ - IP Multicast
+ - Internet address abstraction
 
 %description -l pl.UTF-8
 Gnet jest prostą biblioteką sieciową. Jest napisana w C, zorientowana
-obiektowo i zbudowana na bazie glib. W zamierzeniu ma być mala,
+obiektowo i zbudowana na bazie glib. W zamierzeniu ma być mała,
 szybka, łatwa w użyciu i łatwa do przeniesienia na inne systemy.
 Interfejs jest podobny do biblioteki sieciowej Javy. Możliwości to:
-   - gniazda 'klienckie' TCP
-   - gniazda 'serwerowe' TCP
-   - nie-blokujące gniazda TCP
-   - UDP
-   - IP Multicast
+ - gniazda "klienckie" TCP
+ - gniazda "serwerowe" TCP
+ - nieblokujące gniazda TCP
+ - UDP
+ - IP Multicast
 
 %package devel
 Summary:	Header files for the Gnet library
 Summary(pl.UTF-8):	Pliki nagłówkowe dla biblioteki Gnet
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 2.0
+Requires:	glib2-devel >= 1:2.6.0
 Requires:	gtk-doc-common
 
 %description devel
@@ -56,7 +57,9 @@ and built upon glib. This package allows you to develop applications
 that use the Gnet library.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe dla biblioteki Gnet.
+Gnet jest prostą biblioteką sieciową. Jest napisana w C, zorientowana
+obiektowo i zbudowana na bazie glib. Ten pakiet pozwala tworzyć
+aplikacje wykorzystujące bibliotekę Gnet.
 
 %package static
 Summary:	Static Gnet library
@@ -106,14 +109,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README ChangeLog NEWS TODO AUTHORS
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/lib*.so.?
+%doc AUTHORS BUGS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_libdir}/libgnet-2.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgnet-2.0.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/libgnet-2.0.so
+%{_libdir}/libgnet-2.0.la
 %{_libdir}/gnet-2.0
 %{_includedir}/gnet-2.0
 %{_aclocaldir}/gnet-2.0.m4
@@ -122,4 +125,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgnet-2.0.a
